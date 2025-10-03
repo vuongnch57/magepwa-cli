@@ -7,7 +7,30 @@
   "type": "commonjs",
   "license": "MIT",
   "description": "CLI to bootstrap Magento PWA Studio and apply custom scaffolds",
-  "author": "",
+  "author": "Glenn <hoangvuong94st@gmail.com>",
+  "homepage": "https://github.com/vuongnch57/magepwa-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuongnch57/magepwa-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vuongnch57/magepwa-cli/issues"
+  },
+  "keywords": [
+    "magento",
+    "pwa",
+    "cli",
+    "scaffold",
+    "boilerplate",
+    "magento-pwa-studio"
+  ],
+  "files": [
+    "bin/",
+    "src/",
+    "scaffolds/",
+    "package.json",
+    "README.md"
+  ],
   "engines": {
     "node": ">=18.0.0"
   },

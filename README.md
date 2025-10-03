@@ -1,0 +1,193 @@
+# MagePWA CLI
+
+A powerful CLI tool to enhance existing Magento PWA Studio projects with custom scaffolds and development features.
+
+## 🚀 Features
+
+- **Project Enhancement**: Add pre-configured files and structure to existing Magento PWA projects
+- **Custom Build Targets**: Enhanced webpack configuration with custom interceptors and resolvers
+- **Override System**: Ready-to-use override directories for venia-ui, peregrine, and pagebuilder
+- **Store Context**: Global store configuration context for easy access throughout your app
+- **Tailwind Integration**: Pre-configured Tailwind CSS setup with custom theme configuration
+- **Import Aliases**: Clean import paths with webpack aliases for better code organization
+- **Development Server**: Enhanced development server with custom configurations
+- **Environment Checks**: Built-in doctor command to verify prerequisites
+
+## 📦 Installation
+
+```bash
+npm install -g magepwa-cli
+```
+
+## 🛠️ Usage
+
+### Add scaffolds to existing Magento PWA project
+
+```bash
+# Navigate to your existing Magento PWA project
+cd your-magento-pwa-project
+
+# Run the init command to add scaffolds
+magepwa init
+```
+
+This command will:
+- Set up custom scaffolds and configurations in your existing project
+- Create override directories for customizations
+- Configure webpack aliases and Tailwind CSS
+- Set up store context for global configuration
+- Copy pre-configured build targets and interceptors
+- Set up development server configuration
+
+### Available Commands
+
+```bash
+magepwa init          # Add scaffolds to existing Magento PWA project
+magepwa doctor        # Check environment prerequisites (Node.js, npx)
+magepwa --help        # Show help information
+```
+
+**Note**: The `apply` command is referenced in the CLI but not yet implemented.
+
+## 🏗️ Project Structure
+
+After running `magepwa init` in your existing Magento PWA project, it will add:
+
+```
+src/
+├── targets/           # Custom build targets and interceptors
+│   ├── local-intercept.js
+│   ├── VeniaResolverPlugin.js
+│   └── extend-configured-route.js
+├── contexts/          # Store context configuration
+│   └── store.js
+├── overrides/         # Component override directories
+│   ├── venia-ui/     # Venia UI overrides
+│   ├── peregrine/    # Peregrine overrides
+│   └── pagebuilder/  # Page Builder overrides
+└── ...
+
+# Root level configuration files
+├── serve.js           # Development server configuration
+├── theme.js           # Theme configuration with Tailwind
+├── tailwind.config.js # Tailwind CSS configuration
+├── webpack.config.js  # Enhanced webpack configuration
+└── upward.yml         # Upward configuration
+```
+
+## 🔧 Override System
+
+The CLI supports overriding components from three main modules:
+
+### 1. Venia UI Components
+Create files with the exact same path as the original:
+```
+src/overrides/venia-ui/components/AccountChip/accountChip.js
+```
+
+### 2. Peregrine Hooks
+Override hooks and utilities:
+```
+src/overrides/peregrine/hooks/useAccountMenu/useAccountMenu.js
+```
+
+### 3. Page Builder Components
+Customize Page Builder elements:
+```
+src/overrides/pagebuilder/components/Button/button.js
+```
+
+## 🌐 Store Context
+
+Access store configuration anywhere in your app:
+
+```javascript
+import { useStoreContext } from '@contexts/store';
+
+const MyComponent = () => {
+  const { product_url_suffix, store_code } = useStoreContext();
+  // Use store configuration
+};
+```
+
+## ⚙️ Build Configuration
+
+The CLI sets up enhanced build configuration:
+
+### Custom Webpack Configuration
+- **Import Aliases**: Clean import paths for better code organization
+- **Custom Resolvers**: Enhanced module resolution for Magento PWA
+- **Build Targets**: Custom interceptors and route extensions
+
+### Development Server
+- **Custom Serve Configuration**: Enhanced development server setup
+- **Hot Reloading**: Optimized for Magento PWA development
+- **Proxy Configuration**: Ready for Magento backend integration
+
+### Tailwind CSS Integration
+- **Pre-configured Theme**: Custom theme configuration
+- **Magento-specific Classes**: Tailored for Magento PWA components
+- **Build Optimization**: Optimized for production builds
+
+## 🎨 Import Aliases
+
+Use these aliases for cleaner imports:
+
+- `@` - src directory
+- `@components` - src/components
+- `@utils` - src/utils
+- `@hooks` - src/hooks
+- `@talons` - src/talons
+- `@overrides` - src/overrides
+- `@i18n` - src/i18n
+
+## 📋 Requirements
+
+- Node.js >= 18.0.0
+- npm or yarn package manager
+- npx (usually included with npm)
+
+## 🔍 What's Included
+
+### Pre-configured Files
+- **serve.js**: Enhanced development server configuration
+- **theme.js**: Tailwind CSS theme configuration
+- **tailwind.config.js**: Complete Tailwind setup
+- **webpack.config.js**: Enhanced webpack configuration with aliases
+- **upward.yml**: Upward configuration for PWA
+
+### Build Targets
+- **local-intercept.js**: Custom request interceptor
+- **VeniaResolverPlugin.js**: Enhanced module resolver
+- **extend-configured-route.js**: Route extension utilities
+
+### Store Context
+- **store.js**: Global store configuration context
+- Ready-to-use React context for store settings
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built for the Magento PWA Studio community
+- Inspired by modern CLI development practices
+- Thanks to all contributors and users
+
+## 📞 Support
+
+- [GitHub Issues](https://github.com/vuongnch57/magepwa-cli/issues)
+- [Documentation](https://github.com/vuongnch57/magepwa-cli#readme)
+
+---
+
+Made with ❤️ for the Magento PWA community
