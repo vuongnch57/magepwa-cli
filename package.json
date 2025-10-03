@@ -1,0 +1,26 @@
+{
+  "name": "magepwa-cli",
+  "version": "0.1.0",
+  "bin": {
+    "magepwa": "bin/magepwa.js"
+  },
+  "type": "commonjs",
+  "license": "MIT",
+  "description": "CLI to bootstrap Magento PWA Studio and apply custom scaffolds",
+  "author": "",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js --help"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "execa": "^8.0.1",
+    "fs-extra": "^11.2.0",
+    "ora": "^8.0.1",
+    "prompts": "^2.4.2"
+  }
+}
