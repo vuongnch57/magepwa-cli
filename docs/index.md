@@ -37,6 +37,7 @@ magepwa init
 ```bash
 magepwa init          # Add scaffolds to existing Magento PWA project
 magepwa regions       # Copy regions manager scaffold files
+magepwa tax-invoice   # Copy tax invoice scaffold files
 magepwa doctor        # Check environment prerequisites
 magepwa --help        # Show help information
 ```
@@ -175,6 +176,62 @@ const AddressForm = () => {
 };
 ```
 
+## Tax Invoice Components
+
+### Adding Tax Invoice Components
+
+```bash
+# Copy tax invoice scaffold to current directory's src folder (default)
+magepwa tax-invoice
+
+# Copy to a specific project directory
+magepwa tax-invoice --dir /path/to/project
+
+# Copy to a custom destination folder
+magepwa tax-invoice --dir /path/to/project --dest components
+
+# Copy to current directory with custom destination
+magepwa tax-invoice --dest src/components
+```
+
+### Tax Invoice Command Options
+
+- `-d, --dir <path>` - Target directory to copy files to (default: ".")
+- `--dest <path>` - Destination subdirectory within target directory (default: "src")
+
+### Usage Example
+
+```javascript
+// Import the components in your React components
+import TaxInvoice from '@components/CheckoutPage/TaxInvoice';
+import { useTaxInvoice } from '@talons/CheckoutPage/TaxInvoice/useTaxInvoice';
+import { validateTaxInvoiceForm } from '@utils/validateForm';
+
+// Use in your component
+const CheckoutPage = () => {
+  const { taxInvoiceData, loading, submitTaxInvoice } = useTaxInvoice();
+  
+  return (
+    <div>
+      <TaxInvoice 
+        data={taxInvoiceData}
+        loading={loading}
+        onSubmit={submitTaxInvoice}
+        validate={validateTaxInvoiceForm}
+      />
+    </div>
+  );
+};
+```
+
+### Tax Invoice Features
+
+- **Tax Invoice Form**: Complete form with validation for tax invoice data
+- **GraphQL Integration**: Ready-to-use GraphQL queries for tax invoice operations
+- **Form Validation**: Built-in validation utilities for tax invoice forms
+- **CSS Modules**: Styled components with CSS modules
+- **Custom Hooks**: useTaxInvoice hook for data fetching and form handling
+
 ## Import Aliases
 
 Use these aliases for cleaner imports:
@@ -210,6 +267,13 @@ Use these aliases for cleaner imports:
 - **SubDistrict Component**: React component for sub-district selection
 - **GraphQL Queries**: Ready-to-use GraphQL queries for regions data
 - **Custom Hooks**: useDistrict and useSubDistrict hooks for data fetching
+- **CSS Modules**: Styled components with CSS modules
+
+### Tax Invoice Scaffold
+- **TaxInvoice Component**: React component for tax invoice form
+- **GraphQL Queries**: Ready-to-use GraphQL queries for tax invoice operations
+- **Form Validation**: Built-in validation utilities for tax invoice forms
+- **Custom Hooks**: useTaxInvoice hook for data fetching and form handling
 - **CSS Modules**: Styled components with CSS modules
 
 ## Troubleshooting
