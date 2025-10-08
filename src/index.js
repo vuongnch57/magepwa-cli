@@ -72,4 +72,27 @@ program
     }
   });
 
+program
+  .command("regions")
+  .description("Copy Thailand regions scaffold files (components, talons, styles) to destination")
+  .option(
+    "-d, --dir <path>",
+    "Target directory to copy files to (will be created if missing)",
+    "."
+  )
+  .option(
+    "--dest <path>",
+    "Destination subdirectory within target directory",
+    "src"
+  )
+  .action(async (opts) => {
+    const regions = require("./commands/regions");
+    try {
+      await regions(opts);
+    } catch (err) {
+      console.error(chalk.red("✖ regions failed:"), err.message || err);
+      process.exitCode = 1;
+    }
+  });
+
 program.parse();

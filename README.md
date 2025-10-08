@@ -23,6 +23,7 @@ MagePWA CLI streamlines this override-based approach by providing pre-configured
 ## 🚀 Features
 
 - **Project Enhancement**: Add pre-configured files and structure to existing Magento PWA projects
+- **Thailand Regions Components**: Ready-to-use District and SubDistrict components with GraphQL integration
 - **Custom Build Targets**: Enhanced webpack configuration with custom interceptors and resolvers
 - **Override System**: Ready-to-use override directories for venia-ui, peregrine, and pagebuilder
 - **Store Context**: Global store configuration context for easy access throughout your app
@@ -61,11 +62,70 @@ This command will:
 
 ```bash
 magepwa init          # Add scaffolds to existing Magento PWA project
+magepwa regions       # Copy Thailand regions scaffold files (components, talons, styles)
 magepwa doctor        # Check environment prerequisites (Node.js, npx)
 magepwa --help        # Show help information
 ```
 
 **Note**: The `apply` command is referenced in the CLI but not yet implemented.
+
+### Add Thailand regions components to your project
+
+```bash
+# Copy regions scaffold to current directory's src folder (default)
+magepwa regions
+
+# Copy to a specific project directory
+magepwa regions --dir /path/to/project
+
+# Copy to a custom destination folder
+magepwa regions --dir /path/to/project --dest components
+
+# Copy to current directory with custom destination
+magepwa regions --dest src/components
+```
+
+This command will:
+- Copy District and SubDistrict address components
+- Include GraphQL queries and hooks for regions
+- Add CSS modules for component styling
+- Provide ready-to-use React components for Thailand address management
+
+#### Regions Command Options
+
+- `-d, --dir <path>` - Target directory to copy files to (default: ".")
+- `--dest <path>` - Destination subdirectory within target directory (default: "src")
+
+#### Usage Example
+
+```javascript
+// Import the components in your React components
+import District from '@components/Address/District';
+import SubDistrict from '@components/Address/SubDistrict';
+import { useDistrict } from '@talons/Address/District/useDistrict';
+import { useSubDistrict } from '@talons/Address/SubDistrict/useSubDistrict';
+
+// Use in your component
+const AddressForm = () => {
+  const { districts, loading } = useDistrict();
+  const { subDistricts, loading: subLoading } = useSubDistrict(selectedDistrict);
+  
+  return (
+    <div>
+      <District 
+        districts={districts} 
+        loading={loading}
+        onSelect={setSelectedDistrict}
+      />
+      <SubDistrict 
+        subDistricts={subDistricts}
+        loading={subLoading}
+        onSelect={setSelectedSubDistrict}
+      />
+    </div>
+  );
+};
+```
 
 ## 🏗️ Project Structure
 
@@ -182,6 +242,13 @@ Use these aliases for cleaner imports:
 ### Store Context
 - **store.js**: Global store configuration context
 - Ready-to-use React context for store settings
+
+### Thailand Regions Scaffold
+- **District Component**: React component for district selection
+- **SubDistrict Component**: React component for sub-district selection
+- **GraphQL Queries**: Ready-to-use GraphQL queries for regions data
+- **Custom Hooks**: useDistrict and useSubDistrict hooks for data fetching
+- **CSS Modules**: Styled components with CSS modules
 
 ## 🤝 Contributing
 

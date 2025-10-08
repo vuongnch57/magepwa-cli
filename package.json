@@ -1,6 +1,6 @@
 {
   "name": "magepwa-cli",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "bin": {
     "magepwa": "bin/magepwa.js"
   },
