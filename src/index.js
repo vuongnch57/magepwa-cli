@@ -118,4 +118,27 @@ program
     }
   });
 
+program
+  .command("freegift")
+  .description("Copy free gift scaffold files (components, talons, utils, styles) to destination")
+  .option(
+    "-d, --dir <path>",
+    "Target directory to copy files to (will be created if missing)",
+    "."
+  )
+  .option(
+    "--dest <path>",
+    "Destination subdirectory within target directory",
+    "src"
+  )
+  .action(async (opts) => {
+    const freegift = require("./commands/freegift");
+    try {
+      await freegift(opts);
+    } catch (err) {
+      console.error(chalk.red("✖ freegift failed:"), err.message || err);
+      process.exitCode = 1;
+    }
+  });
+
 program.parse();

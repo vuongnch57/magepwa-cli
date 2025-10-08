@@ -11,8 +11,9 @@ Welcome to the comprehensive documentation for MagePWA CLI. This guide covers ev
 5. [Build Configuration](#build-configuration)
 6. [Regions Components](#regions-components)
 7. [Tax Invoice Components](#tax-invoice-components)
-8. [Import Aliases](#import-aliases)
-9. [Troubleshooting](#troubleshooting)
+8. [Free Gift Components](#free-gift-components)
+9. [Import Aliases](#import-aliases)
+10. [Troubleshooting](#troubleshooting)
 
 ## Getting Started
 
@@ -39,6 +40,7 @@ magepwa init
 magepwa init          # Add scaffolds to existing Magento PWA project
 magepwa regions       # Copy regions manager scaffold files
 magepwa tax-invoice   # Copy tax invoice scaffold files
+magepwa freegift      # Copy free gift scaffold files (requires Amasty extension)
 magepwa doctor        # Check environment prerequisites
 magepwa --help        # Show help information
 ```
@@ -233,6 +235,97 @@ const CheckoutPage = () => {
 - **CSS Modules**: Styled components with CSS modules
 - **Custom Hooks**: useTaxInvoice hook for data fetching and form handling
 
+## Free Gift Components
+
+> **⚠️ Important Prerequisites**: The Free Gift components require the **Amasty Free Gift Magento 2 extension** to be installed on your Magento backend, along with the corresponding GraphQL module. These components will not work without the proper backend extension.
+
+### Adding Free Gift Components
+
+```bash
+# Copy free gift scaffold to current directory's src folder (default)
+magepwa freegift
+
+# Copy to a specific project directory
+magepwa freegift --dir /path/to/project
+
+# Copy to a custom destination folder
+magepwa freegift --dir /path/to/project --dest components
+
+# Copy to current directory with custom destination
+magepwa freegift --dest src/components
+```
+
+### Free Gift Command Options
+
+- `-d, --dir <path>` - Target directory to copy files to (default: ".")
+- `--dest <path>` - Destination subdirectory within target directory (default: "src")
+
+### Prerequisites
+
+Before using the Free Gift components, ensure you have:
+
+1. **Amasty Free Gift Extension**: Install the Amasty Free Gift Magento 2 extension on your Magento backend
+2. **GraphQL Module**: Ensure the GraphQL module for the Free Gift extension is enabled
+3. **Backend Configuration**: Configure the Free Gift rules and promotions in your Magento admin
+
+### Usage Example
+
+```javascript
+// Import the components in your React components
+import FreeGift from '@components/FreeGift';
+import { useFreeGift } from '@talons/FreeGift/useFreeGift';
+import { useFreeGiftSelection } from '@talons/FreeGift/useFreeGiftSelection';
+import { useGiftPromotions } from '@talons/FreeGift/useGiftPromotions';
+
+// Use in your component
+const CartPage = () => {
+  const { freeGifts, loading } = useFreeGift();
+  const { selectedGifts, selectGift } = useFreeGiftSelection();
+  const { promotions, loading: promotionsLoading } = useGiftPromotions();
+  
+  return (
+    <div>
+      <FreeGift 
+        gifts={freeGifts}
+        loading={loading}
+        onSelect={selectGift}
+        selectedGifts={selectedGifts}
+        promotions={promotions}
+        promotionsLoading={promotionsLoading}
+      />
+    </div>
+  );
+};
+```
+
+### Free Gift Features
+
+- **Free Gift Selection**: Interactive popup interface for selecting free gifts
+- **Gift Promotion Management**: Display and manage gift promotions
+- **Applied Cart Rules Integration**: Integration with Magento cart rules
+- **GraphQL Integration**: Ready-to-use GraphQL queries for free gift operations
+- **CSS Modules**: Styled components with CSS modules
+- **Custom Hooks**: Multiple hooks for different aspects of free gift functionality
+- **Utility Functions**: Formatting and time utilities for gift management
+
+### Available Hooks
+
+- **useFreeGift**: Main hook for fetching available free gifts
+- **useFreeGiftSelection**: Hook for managing gift selection state
+- **useGiftPromotions**: Hook for fetching and managing gift promotions
+- **useAppliedCartRules**: Hook for cart rules integration
+
+### Component Structure
+
+The Free Gift scaffold includes:
+
+- **FreeGift Component**: Main component with popup interface
+- **Popup Components**: Item selection, quantity management, and options
+- **Promotion Components**: Gift promotion display and management
+- **Icons**: Custom icons for the free gift interface
+- **GraphQL Queries**: Complete set of queries for free gift operations
+- **Utility Functions**: Formatting and time management utilities
+
 ## Import Aliases
 
 Use these aliases for cleaner imports:
@@ -276,6 +369,17 @@ Use these aliases for cleaner imports:
 - **Form Validation**: Built-in validation utilities for tax invoice forms
 - **Custom Hooks**: useTaxInvoice hook for data fetching and form handling
 - **CSS Modules**: Styled components with CSS modules
+
+### Free Gift Scaffold
+- **FreeGift Component**: React component with popup interface for free gift selection
+- **GraphQL Queries**: Ready-to-use GraphQL queries for free gift operations
+- **Custom Hooks**: Multiple hooks for free gift functionality (useFreeGift, useFreeGiftSelection, useGiftPromotions)
+- **Popup Components**: Item selection, quantity management, and options
+- **Promotion Components**: Gift promotion display and management
+- **Icons**: Custom icons for the free gift interface
+- **Utility Functions**: Formatting and time management utilities
+- **CSS Modules**: Styled components with CSS modules
+- **⚠️ Requires**: Amasty Free Gift Magento 2 extension and GraphQL module
 
 ## Troubleshooting
 

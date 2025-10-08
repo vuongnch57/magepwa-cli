@@ -16,6 +16,7 @@ Magento PWA Studio's **targetables** system can be complex and hard to debug. Ma
 - **Project Enhancement**: Add pre-configured files and structure to existing Magento PWA projects
 - **Regions Manager Components**: Ready-to-use District and SubDistrict components with GraphQL integration
 - **Tax Invoice Components**: Complete tax invoice form with validation and GraphQL integration
+- **Free Gift Components**: Complete free gift selection system with popup interface and promotion management
 - **Override System**: Ready-to-use override directories for venia-ui, peregrine, and pagebuilder
 - **Store Context**: Global store configuration context for easy access throughout your app
 - **Tailwind Integration**: Pre-configured Tailwind CSS setup with custom theme configuration
@@ -47,6 +48,9 @@ magepwa regions
 
 # Copy tax invoice components
 magepwa tax-invoice
+
+# Copy free gift components (requires Amasty Free Gift extension)
+magepwa freegift
 ```
 
 ### 3. Available Commands
@@ -55,6 +59,7 @@ magepwa tax-invoice
 magepwa init          # Add scaffolds to existing Magento PWA project
 magepwa regions       # Copy regions manager scaffold files
 magepwa tax-invoice   # Copy tax invoice scaffold files
+magepwa freegift      # Copy free gift scaffold files (requires Amasty extension)
 magepwa doctor        # Check environment prerequisites
 magepwa --help        # Show help information
 ```
@@ -76,6 +81,7 @@ The documentation includes:
 - Build configuration options
 - Regions components usage
 - Tax invoice components usage
+- Free gift components usage
 - Store context implementation
 - Troubleshooting guide
 

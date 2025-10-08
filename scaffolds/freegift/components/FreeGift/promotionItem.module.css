@@ -1,0 +1,29 @@
+.root {
+    @apply flex p-4 gap-x-2 w-full;
+    @apply border border-solid border-gray-2 rounded-[8px];
+}
+
+.root.checked {
+    @apply bg-gray-1 border;
+}
+
+.content {
+    @apply flex-1 min-h-[50px];
+}
+
+.checkedIcon {
+    @apply shrink-0 w-[20px];
+}
+
+.name,
+.expDate {
+    @apply text-sm;
+}
+
+.name {
+    @apply font-bold;
+}
+
+.expDate {
+    @apply text-gray-4 mt-2;
+}

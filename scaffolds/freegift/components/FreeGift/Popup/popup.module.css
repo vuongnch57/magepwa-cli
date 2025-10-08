@@ -1,0 +1,72 @@
+.root {
+  composes: bottom-0 from global;
+  composes: left-0 from global;
+  composes: right-0 from global;
+  composes: fixed from global;
+  composes: top-0 from global;
+  composes: w-full from global;
+  composes: h-full from global;
+  composes: z-dialog from global;
+  @apply flex items-center justify-center sm_p-10;
+
+  visibility: hidden;
+}
+
+.root_open {
+  composes: root;
+
+  visibility: visible;
+}
+
+.body {
+  @apply bg-white z-100 w-full h-full sm_h-auto max-w-[1152px] flex flex-col; 
+}
+
+.header {
+  composes: flex from global;
+  composes: items-center from global;
+  composes: justify-between from global;
+  composes: p-2 from global;
+  composes: pl-4 from global;
+  composes: gap-x-2 from global;
+  @apply border-b border-gray-2 h-16;
+}
+
+.headerTitle {
+  composes: text-lg from global;
+  @apply leading-[25px] line-clamp-1 text-ellipsis;
+}
+
+.content {
+  @apply overflow-y-auto px-4 py-8 pb-[23px];
+}
+
+.bottom {
+  @apply grid grid-cols-1 sm_grid-cols-2 z-100 p-4 sm_px-12 sm_flex items-center justify-center border-t border-gray-2 gap-x-12 fixed bottom-0 left-0 right-0 sm_static;
+}
+
+.gridItems {
+  @apply grid grid-cols-1 sm_grid-cols-3 lg_grid-cols-4 gap-4 mt-4;
+}
+
+@media (max-width: 1023px) {
+  .root {
+    transform: none;
+  }
+
+  .root_open {
+    transform: none;
+  }
+
+  .form {
+    @apply content-center justify-center;
+  }
+
+  .dialog {
+    @apply max-w-[345px] pt-[15px];
+  }
+
+  .sliderRoot {
+    @apply px-0 mt-[10px];
+  }
+}

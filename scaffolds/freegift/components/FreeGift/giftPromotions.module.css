@@ -1,0 +1,25 @@
+div.dialog {
+    min-height: 667px;
+    @apply min-[769px]_max-w-[375px];
+}
+
+.successTxt,
+.remarkTxt {
+    @apply text-sm;
+}
+
+.successTxt {
+    @apply mt-2 text-green-secondary;
+}
+
+.remarkTxt {
+    @apply mt-4 text-gray-4;
+}
+
+.promotions {
+    @apply mt-4 flex flex-col gap-y-4;
+}
+
+div.buttons {
+    @apply w-full p-4 border-solid border-t border-gray-2;
+}
