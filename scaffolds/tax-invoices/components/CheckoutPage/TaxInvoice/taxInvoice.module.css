@@ -1,0 +1,20 @@
+.root {
+  /* TODO @TW: review (B6) */
+  @apply mt-8;
+}
+
+.title {
+  @apply normal-case text-lg;
+}
+
+.message {
+  @apply text-sm text-gray-4 mb-6 mt-2 lg_mt-6;
+}
+
+.form {
+  @apply grid grid-cols-1 lg_grid-cols-2 gap-x-6 gap-y-4;
+}
+
+.colSpanField {
+  @apply col-start-1 col-end-2 lg_col-end-3;
+}

@@ -95,4 +95,27 @@ program
     }
   });
 
+program
+  .command("tax-invoice")
+  .description("Copy tax invoice scaffold files (components, talons, utils, styles) to destination")
+  .option(
+    "-d, --dir <path>",
+    "Target directory to copy files to (will be created if missing)",
+    "."
+  )
+  .option(
+    "--dest <path>",
+    "Destination subdirectory within target directory",
+    "src"
+  )
+  .action(async (opts) => {
+    const taxInvoice = require("./commands/tax-invoice");
+    try {
+      await taxInvoice(opts);
+    } catch (err) {
+      console.error(chalk.red("✖ tax-invoice failed:"), err.message || err);
+      process.exitCode = 1;
+    }
+  });
+
 program.parse();
