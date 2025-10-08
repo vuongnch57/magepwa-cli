@@ -2,6 +2,24 @@
 
 A powerful CLI tool to enhance existing Magento PWA Studio projects with custom scaffolds and development features.
 
+## 🎯 Motivation
+
+After working on numerous Magento PWA Studio projects, we've discovered that the built-in **targetables** system, while powerful, presents significant challenges for developers:
+
+- **Complex Debugging**: Targetables make it extremely difficult to trace and debug code execution paths
+- **Poor Readability**: The abstraction layer makes it hard to understand what's actually happening in your application
+- **Maintenance Overhead**: Complex targetable configurations become difficult to maintain over time
+- **Developer Experience**: The learning curve is steep and the development workflow is not intuitive
+
+**Our Solution**: After extensive real-world experience, we've concluded that **component overriding** is the most effective approach for customizing Magento PWA Studio applications. This method provides:
+
+- ✅ **Clear Code Paths**: Direct file-based overrides that are easy to follow and debug
+- ✅ **Better Maintainability**: Simple file structure that's easy to understand and modify
+- ✅ **Improved Developer Experience**: Familiar patterns that any React developer can quickly grasp
+- ✅ **Enhanced Debugging**: Clear stack traces and straightforward code navigation
+
+MagePWA CLI streamlines this override-based approach by providing pre-configured scaffolds and development tools that make working with Magento PWA Studio much more enjoyable and productive.
+
 ## 🚀 Features
 
 - **Project Enhancement**: Add pre-configured files and structure to existing Magento PWA projects

@@ -49,7 +49,8 @@ module.exports = async function init({ dir = "." } = {}) {
       "tailwind.config.js", 
       "theme.js",
       "upward.yml",
-      "webpack.config.js"
+      "webpack.config.js",
+      "jsconfig.json"
     ];
     
     for (const file of scaffoldFiles) {
