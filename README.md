@@ -104,15 +104,15 @@ src/overrides/venia-ui/components/AccountChip/accountChip.js
 ```
 
 ### 2. Peregrine Hooks
-Override hooks and utilities:
+Override talons and utilities:
 ```
-src/overrides/peregrine/hooks/useAccountMenu/useAccountMenu.js
+src/overrides/peregrine/talons/AccountMenu/useAccountMenu.js
 ```
 
 ### 3. Page Builder Components
 Customize Page Builder elements:
 ```
-src/overrides/pagebuilder/components/Button/button.js
+src/overrides/pagebuilder/ContentTypes/ButtonItem/buttonItem.js
 ```
 
 ## 🌐 Store Context
