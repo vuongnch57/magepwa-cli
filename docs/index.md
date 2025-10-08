@@ -10,8 +10,9 @@ Welcome to the comprehensive documentation for MagePWA CLI. This guide covers ev
 4. [Store Context](#store-context)
 5. [Build Configuration](#build-configuration)
 6. [Regions Components](#regions-components)
-7. [Import Aliases](#import-aliases)
-8. [Troubleshooting](#troubleshooting)
+7. [Tax Invoice Components](#tax-invoice-components)
+8. [Import Aliases](#import-aliases)
+9. [Troubleshooting](#troubleshooting)
 
 ## Getting Started
 
